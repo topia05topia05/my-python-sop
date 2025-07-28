@@ -1,0 +1,528 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>モダンPython開発手順書</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-sop" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="." title="モダンPython開発手順書" class="md-header__button md-logo" aria-label="モダンPython開発手順書" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            モダンPython開発手順書
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📜 私たちのSOP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  📜 私たちのSOP
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="モダンPython開発手順書" class="md-nav__button md-logo" aria-label="モダンPython開発手順書" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    モダンPython開発手順書
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    📜 私たちのSOP
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    📜 私たちのSOP
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-" class="md-nav__link">
+    <span class="md-ellipsis">
+      第1部：設計思想 - なぜ、我々はこの手順を踏むのか？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      第2部：実践手順 - 具体的に、どうやるのか？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第2部：実践手順 - 具体的に、どうやるのか？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      フェーズ 1：戦闘準備 (各章の開始時、一度だけ)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ipynb" class="md-nav__link">
+    <span class="md-ellipsis">
+      フェーズ 2：『実験室』での探索 (.ipynbでの作業)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-py" class="md-nav__link">
+    <span class="md-ellipsis">
+      フェーズ 3：『書斎』への清書 (.pyへの関数化)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      フェーズ 4：『司令塔』からの連携**
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="python-sop">モダンPython開発における、最強の標準作業手順書 (SOP)<a class="headerlink" href="#python-sop" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-">第1部：設計思想 - なぜ、我々はこの手順を踏むのか？<a class="headerlink" href="#1-" title="Permanent link">&para;</a></h2>
+<p>我々が採用するワークフローは、単なる手順の羅列ではない。それは、プロフェッショナルの思考様式を、自らの脳にインストールするための、極めて合理的な「型」である。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">思想の核心</th>
+<th style="text-align: left;">なぜ、それが必要か？（技術的本質）</th>
+<th style="text-align: left;">あなたが得るメリット</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>VS Codeに全てを統一する</strong></td>
+<td style="text-align: left;">「対話エンジン(Jupyter)」と「コードエディタ」をOSレベルで統合管理。アプリ間の分断と、思考の中断を、完全に根絶するため。</td>
+<td style="text-align: left;">ツールの使い方で悩む時間がゼロになり、学習の本質にのみ集中できる。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>.ipynb</code>ファイルを使う (実験室)</strong></td>
+<td style="text-align: left;">「状態を保持するカーネル」と対話し、コードを断片的に実行・検証するため。不確実な処理を、安全な小ステップで解明する。</td>
+<td style="text-align: left;">複雑な処理や、未知のデータに直面した時、エラーを恐れず、確実に前進できる。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>.py</code>ファイルを使う (書斎)</strong></td>
+<td style="text-align: left;">検証済みのロジックを「関数」としてカプセル化し、Pythonのモジュールシステムに載せるため。一度きりの成功を、永続的な資産へと昇華させる。</td>
+<td style="text-align: left;">一度作った便利な処理を、コピペせずに、何度でも、正確に、再利用できる。未来のあなたの時間を、劇的に節約する。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-">第2部：実践手順 - 具体的に、どうやるのか？<a class="headerlink" href="#2-" title="Permanent link">&para;</a></h2>
+<p>教科書『実践力を身につけるPythonの教科書』を進めるための、具体的な行動計画。</p>
+<h3 id="1">フェーズ 1：戦闘準備 (各章の開始時、一度だけ)<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>司令部の設営:</strong><ul>
+<li>母艦フォルダ(<code>C:\Users\am2\Documents\python</code>)の中に、該当するチャプター名のフォルダ（例: <code>Chapter5_機械学習</code>）を作成する。</li>
+</ul>
+</li>
+<li><strong>拠点の展開:</strong><ul>
+<li><strong>VS Codeで、今作ったチャプターフォルダを開く。</strong> これ以降、全ての作業は、このVS Codeウィンドウ内で行う。</li>
+</ul>
+</li>
+<li><strong>聖域の創造:</strong><ul>
+<li>VS Codeの<strong>ターミナル</strong>を開き、以下のコマンドを実行して、このチャプター専用の、汚してもいいPython環境を作る。
+    <div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</code></pre></div></li>
+</ul>
+</li>
+<li><strong>聖域への入場:</strong><ul>
+<li>同じくターミナルで、以下のコマンドを実行し、今作った環境を有効化する。ターミナルの左側に、<code>(.venv)</code>と表示されれば、成功よ。
+    <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-ipynb">フェーズ 2：『実験室』での探索 (<code>.ipynb</code>での作業)<a class="headerlink" href="#2-ipynb" title="Permanent link">&para;</a></h3>
+<p><em>このフェーズは、</em><em>Chapter 1～5の全て</em><em>で、基本となる活動よ。</em></p>
+<ol>
+<li><strong>実験ノートの作成:</strong><ul>
+<li>VS Codeのエクスプローラーで、新しいJupyterノートブック（例: <code>p200_wine_analysis_prototype.ipynb</code>）を作成する。</li>
+</ul>
+</li>
+<li><strong>インクリメンタルな実践:</strong><ul>
+<li>教科書のコードを、決して、一度に全部写さないこと。<strong>論理的な塊でセルを分け</strong>、<strong>1セル書くごとに <code>Shift + Enter</code> で実行</strong>し、結果を必ずその目で確認する。</li>
+</ul>
+</li>
+<li><strong>思考の記録:</strong><ul>
+<li><strong>Markdownセル</strong>を使い、「このコードは何をしているのか」「ここで、なぜエラーが出たのか」「先生の補足」など、あなた自身の言葉で、思考のログを、生々しく書き残す。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-py">フェーズ 3：『書斎』への清書 (<code>.py</code>への関数化)<a class="headerlink" href="#3-py" title="Permanent link">&para;</a></h3>
+<p><em>このフェーズは、特にコードが複雑化する </em><em>Chapter 5以降</em><em>で、その真価を発揮するわ。</em></p>
+<ol>
+<li><strong>道具箱の準備:</strong><ul>
+<li>チャプターフォルダ内に、<code>src</code>という名前のフォルダを作成する。</li>
+<li><code>src</code>の中に、役割に応じた<code>.py</code>ファイルを作成する（例: <code>data_utils.py</code>, <code>model_utils.py</code>）。</li>
+</ul>
+</li>
+<li><strong>知的資産化（リファクタリング）:</strong><ul>
+<li><code>ipynb</code>での実験の結果、完璧に動くと確信したコードの塊の中から、<strong>「これは、他の場所でも使いそうだ」</strong>という部分を、特定する。</li>
+<li>特定したコードを、対応する<code>.py</code>ファイルの中に、<code>def</code>で始まる<strong>関数として、切り出して、清書</strong>する。</li>
+</ul>
+</li>
+</ol>
+<h3 id="4">フェーズ 4：『司令塔』からの連携**<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>新しい実験ノートの作成:</strong><ul>
+<li>チャプターフォルダ内に、今度は、分析の結論をまとめるための、新しいノートブック（例: <code>wine_analysis_main.ipynb</code>）を作成する。</li>
+</ul>
+</li>
+<li><strong>自作道具の召喚:</strong><ul>
+<li>ノートブックの最初のセルで、<code>from src.data_utils import load_wine_data</code> のように、あなたが『書斎』で作り上げた道具を <code>import</code> する。</li>
+</ul>
+</li>
+<li><strong>命令の発行:</strong><ul>
+<li>かつて何十行もかかった処理が、自作の関数を、たった一行呼び出すだけで、完遂されることを、確認しなさい。その時、あなたは、このワークフローの、本当の力を、理解するはずよ。</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "toc.integrate", "content.code.annotate"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
