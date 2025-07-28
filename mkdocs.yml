@@ -12,8 +12,8 @@ nav:
     - 'なぜ、GitとActionsを使うのか？': 'design_principles/why_git_and_actions.md'
 
   - '📚 チュートリアル':
-    - 'Step 1: プロジェクト創設': 'tutorial/01_project_setup.md'
-    - 'Step 2: 最初のサイト公開': 'tutorial/02_first_site_deploy.md'
+    - 'Step 1: プロジェクト創設': 'tutorial/01_setup_environment.md'
+    - 'Step 2: 最初のサイト公開': 'tutorial/02_deploy_site.md'
 
   - '🛠️ ハウツーガイド':
     - '仮想環境を操作する': 'how-to-guides/manage_virtual_environment.md'
