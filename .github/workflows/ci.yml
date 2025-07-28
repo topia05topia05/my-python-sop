@@ -1,0 +1,30 @@
+name: Build and Deploy Docs
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにpushされた時だけ、このロボットは起動する
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # 最新のUbuntu環境で作業しろ
+    steps:
+      - name: Checkout  # 1. まず、コードを、この場所に持ってくる
+        uses: actions/checkout@v3
+
+      - name: Setup Python # 2. Python環境を準備する
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies # 3. 必要な武器（mkdocs）をインストールする
+        run: pip install mkdocs mkdocs-material
+
+      - name: Build site # 4. mkdocs buildコマンドで、サイトを静的なHTMLファイル群に変換する
+        run: mkdocs build
+
+      - name: Deploy to GitHub Pages # 5. 完成したサイトを、世界に公開する
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
