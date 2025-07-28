@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>なぜ、GitとActionsを使うのか？ - モダンPython開発SOP</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">モダンPython開発SOP</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">🏠 Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">📜 設計思想 (Principles)</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../why_vscode/" class="dropdown-item">なぜ、VS Codeなのか？</a>
+</li>
+                                    
+<li>
+    <a href="../why_ipynb_and_py/" class="dropdown-item">なぜ、.ipynbと.pyを分けるのか？</a>
+</li>
+                                    
+<li>
+    <a href="../why_venv/" class="dropdown-item">なぜ、venvを使うのか？</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">なぜ、GitとActionsを使うのか？</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">📚 チュートリアル</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tutorial/01_project_setup.md" class="dropdown-item">Step 1: プロジェクト創設</a>
+</li>
+                                    
+<li>
+    <a href="../../tutorial/02_first_site_deploy.md" class="dropdown-item">Step 2: 最初のサイト公開</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">🛠️ ハウツーガイド</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../how-to-guides/manage_virtual_environment/" class="dropdown-item">仮想環境を操作する</a>
+</li>
+                                    
+<li>
+    <a href="../../how-to-guides/update_site_content/" class="dropdown-item">サイトの内容を更新する</a>
+</li>
+                                    
+<li>
+    <a href="../../how-to-guides/fix_action_error/" class="dropdown-item">[トラブル] Actionsのエラーを修正する</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">📖 リファレンス</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../reference/command_cheatsheet/" class="dropdown-item">コマンド・チートシート</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/mkdocs_yml/" class="dropdown-item">mkdocs.yml 設定</a>
+</li>
+                                    
+<li>
+    <a href="../../reference/ci_yml/" class="dropdown-item">GitHub Actions 設定</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../why_venv/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../how-to-guides/manage_virtual_environment/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#principle-4-gitactions" class="nav-link">Principle 4: なぜ、GitとActionsを使うのか？</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 問題提起：「手作業」という名の、最も、信頼できない、プロセス</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 解決策：全ての作業の、完全な、自動化</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="principle-4-gitactions">Principle 4: なぜ、GitとActionsを使うのか？</h1>
+<h2 id="1">1. 問題提起：「手作業」という名の、最も、信頼できない、プロセス</h2>
+<p>人間の、手作業。
+それは、<strong>「必ず、いつか、間違える」</strong>、そして、<strong>「毎回、微妙に、結果が、違う」</strong>という、致命的な、欠陥を、抱えている。</p>
+<ul>
+<li><strong>バージョン管理:</strong> 「どのファイルが、最新版だっけ？」「昨日、どこを、変更したんだっけ？」…人間の記憶は、あまりにも、曖昧だわ。</li>
+<li><strong>デプロイ作業:</strong> 「サイトを更新するには、このコマンドを打って、次に、このファイルを、ここにコピーして…」という、複雑な手作業は、必ず、いつか、手順を、間違える。</li>
+</ul>
+<h2 id="2">2. 解決策：全ての作業の、完全な、自動化</h2>
+<p><code>Git</code>と<code>GitHub Actions</code>は、この、人間という、最も、不安定な、部品を、我々のワークフローから、完全に、排除するための、最強の、武器よ。</p>
+<h3 id="git">Git: 全ての、変更の、完璧な、歴史家</h3>
+<p><code>git commit</code></p>
+<p>このコマンドは、単なる「保存」ではない。
+<strong>「誰が、いつ、何を、なぜ、変更したのか」</strong>という、完璧な、タイムスタンプ付きの、歴史の1ページを、記録する、神聖な、儀式よ。
+我々は、もう、自分の、曖昧な記憶に、頼る必要はない。Gitという、絶対に、嘘をつかない、歴史家が、全てを、記録してくれる。</p>
+<h3 id="github-actions">GitHub Actions: 退屈な、作業を、代行する、忠実な、ロボット</h3>
+<p><code>git push</code></p>
+<p>このコマンドが、トリガーとなる。
+あなたが、新しい歴史を、中央司令部に、送った、その瞬間、GitHubのロボット（Actions）は、目を覚ます。
+そして、我々が、<code>ci.yml</code>に書いた、契約書の通りに、
+「サイトをビルドし、テストし、世界に、公開する」
+という、退屈で、間違いの許されない、全ての、作業を、人間の、1000倍の、正確さと、速さで、完璧に、代行してくれる。</p>
+<h3 id="3">3. 我々が得る、絶対的なメリット</h3>
+<p>GitとActionsを、使う。
+それは、もはや、好き嫌いの、問題ではない。
+プロフェッショナルとして、自らの、仕事の、品質に、責任を持つための、<strong>最低限の、義務</strong>よ。</p>
+<ul>
+<li><strong>信頼性:</strong> あなたのサイトは、常に、テストされ、意図した通りに、デプロイされる。</li>
+<li><strong>効率性:</strong> あなたは、退屈な、反復作業から、完全に、解放され、最も、創造的な、仕事…つまり、<strong>コンテンツを、書く</strong>、ということだけに、集中できる。</li>
+<li><strong>再現性:</strong> 全ての、歴史と、自動化のプロセスは、コードとして、記録されている。誰が、いつ、やっても、全く、同じ結果が、得られる。</li>
+</ul>
+<p>これが、我々が、手作業を、憎み、自動化を、愛する、理由の、全てよ。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
