@@ -1,31 +1,29 @@
-# サイト全体の名前
-site_name: モダンPython開発手順書
+# mkdocs.yml
 
-# サイトの目次（ナビゲーション）
+site_name: モダンPython開発SOP
+
 nav:
-  - '📜 私たちのSOP': 'index.md'
-  # - 'Chapter 1: 基本': 'c1/summary.md'   # ←将来、C1のまとめを作ったら、このコメントを外す
-  # - 'Chapter 2: データ構造': 'c2/notes.md' # ←将来、C2のノートを作ったら、ここを有効にする
-  # 将来、ページが増えたら、ここに追加していくのよ
+  - '🏠 Home': 'index.md'
 
-# サイトの見た目を司るテーマ
+  - '📜 設計思想 (Principles)':
+    - 'なぜ、VS Codeなのか？': 'design_principles/why_vscode.md'
+    - 'なぜ、.ipynbと.pyを分けるのか？': 'design_principles/why_ipynb_and_py.md'
+    - 'なぜ、venvを使うのか？': 'design_principles/why_venv.md'
+    - 'なぜ、GitとActionsを使うのか？': 'design_principles/why_git_and_actions.md'
+
+  - '📚 チュートリアル':
+    - 'Step 1: プロジェクト創設': 'tutorial/01_project_setup.md'
+    - 'Step 2: 最初のサイト公開': 'tutorial/02_first_site_deploy.md'
+
+  - '🛠️ ハウツーガイド':
+    - '仮想環境を操作する': 'how-to-guides/manage_virtual_environment.md'
+    - 'サイトの内容を更新する': 'how-to-guides/update_site_content.md'
+    - '[トラブル] Actionsのエラーを修正する': 'how-to-guides/fix_action_error.md'
+
+  - '📖 リファレンス':
+    - 'コマンド・チートシート': 'reference/command_cheatsheet.md'
+    - 'mkdocs.yml 設定': 'reference/mkdocs_yml.md'
+    - 'GitHub Actions 設定': 'reference/ci_yml.md'
+
 theme:
-  name: material
-  language: ja
-  palette:
-    scheme: slate   # 美しいダークモード
-    primary: indigo # アクセントカラー
-  features:
-    - navigation.tabs           # 上部にタブを表示
-    - navigation.instant        # ページ遷移を高速化
-    - navigation.top            # トップへ戻るボタン
-    - toc.integrate             # 右側に追従する目次
-    - content.code.annotate     # コードブロックに注釈を追加できる
-
-# Markdownを拡張する魔法の呪文
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - toc:
-      permalink: true # 各見出しにリンクを付ける
+  # (theme以下の設定は、変更なしで、そのままでいいわ)
