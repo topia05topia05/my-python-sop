@@ -1,6 +1,10 @@
 site_name: パーソナルSOPサイト
 
 nav:
+  - '🐍 Python Basics':  # ←【重要】新しい、大カテゴリを追加！
+      - '構文チートシート': 'python_basics/01_syntax_cheatsheet.md'
+
+  - '---': [] # ← 美しい、区切り線も、入れておきましょう
   - 'VS Code': 'vscode.md'
   - 'Git': 'git.md'
   - 'コマンド・チートシート': 'commands.md'
