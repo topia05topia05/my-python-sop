@@ -1,0 +1,5 @@
+a_file = open("test.txt", mode="w", encoding="utf-8")
+a_file.write("Hello world!")
+a_file.write("This is a test file for Python.")
+a_file.write("I am learning Python.")
+a_file.close()
